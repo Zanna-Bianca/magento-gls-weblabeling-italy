@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Zanna Gls Weblabeling Module
+  ~
+  ~ @author                Zanna Bianca
+  ~ @package             Zanna Gls
+  ~ @version               1.0.0
+  ~ @copyright           2022 Zanna Bianca
+  ~ @license                http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+  -->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="zanna_gls">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">zanna_gls</item>
+                        <item name="label" xsi:type="string" translate="true">Esporta GLS</item>
+                        <item name="url" xsi:type="url" path="zannagls/order/export"/>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Zanna Gls Weblabeling Module
+  ~
+  ~ @author                Zanna Bianca
+  ~ @package             Zanna Gls
+  ~ @version               1.0.0
+  ~ @copyright           2022 Zanna Bianca
+  ~ @license                http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceContainer name="header.content" remove="true"/>
+        <referenceContainer name="main.top" remove="true"/>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceContainer name="content">
+            <referenceBlock class="Zanna\Gls\Block\Popup" name="shipping.tracking.popup" template="Zanna_Gls::popup.phtml">
+                <arguments>
+                    <argument name="delivery_date_title" xsi:type="object">Magento\Shipping\Block\DataProviders\Tracking\DeliveryDateTitle</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

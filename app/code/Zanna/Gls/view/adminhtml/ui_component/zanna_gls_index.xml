@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Zanna Gls Weblabeling Module
+  ~
+  ~ @author                Zanna Bianca
+  ~ @package             Zanna Gls
+  ~ @version               1.0.0
+  ~ @copyright           2022 Zanna Bianca
+  ~ @license                http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">zanna_gls_index.form_data_source</item>
+            <item name="deps" xsi:type="string">zanna_gls_index.form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Import GLS</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">zanna_gls_index</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Zanna\Gls\Block\Adminhtml\BackButton</item>
+            <item name="save" xsi:type="string">Zanna\Gls\Block\Adminhtml\SaveButton</item>
+        </item>
+    </argument>
+
+    <dataSource name="gls_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Zanna\Gls\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" path="*/*/save" xsi:type="url"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="load">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="required" xsi:type="boolean">true</item>
+                <item name="validateWholeGroup" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">Carica Lista</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+
+        <file name="list">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Lista spedizioni</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="zannagls/sales/saves"/>
+                    </item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </file>
+    </fieldset>
+    <fieldset name="guide" sortOrder="40">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Guida</label>
+        </settings>
+        <fieldset name="guide_export" sortOrder="20">
+            <settings>
+                <collapsible>true</collapsible>
+                <label translate="true">Esportazione</label>
+            </settings>
+            <container name="guide_image_export_container" sortOrder="10">
+                <fieldset name="guide_export_1" sortOrder="10">
+                    <settings>
+                        <label translate="true">Fase 1</label>
+                        <collapsible>false</collapsible>
+                    </settings>
+                    <container name="guide_image_export_container_1" sortOrder="10">
+                        <htmlContent name="guide_image_export_content_1">
+                            <block class="Zanna\Gls\Block\Adminhtml\Image" name="guide_image_export_1"
+                                   template="Zanna_Gls::image.phtml">
+                                <arguments>
+                                    <argument name="image" xsi:type="string">Zanna_Gls::images/export.png</argument>
+                                    <argument name="text" xsi:type="string">Selezionare gli ordini da esportare e fare
+                                        clic su ESPORTA GLS
+                                    </argument>
+                                </arguments>
+                            </block>
+                        </htmlContent>
+                    </container>
+                </fieldset>
+                <fieldset name="guide_export_2" sortOrder="20">
+                    <settings>
+                        <label translate="true">Fase 2</label>
+                        <collapsible>false</collapsible>
+                    </settings>
+                    <container name="guide_image_export_container_2" sortOrder="20">
+                        <htmlContent name="guide_image_export_content_2">
+                            <block class="Zanna\Gls\Block\Adminhtml\Image" name="guide_image_export_2"
+                                   template="Zanna_Gls::image.phtml">
+                                <arguments>
+                                    <argument name="image" xsi:type="string">Zanna_Gls::images/export_2.png</argument>
+                                    <argument name="text" xsi:type="string">Configura gli indici per il tracciato come
+                                        in figura
+                                    </argument>
+                                </arguments>
+                            </block>
+                        </htmlContent>
+                    </container>
+                </fieldset>
+                <fieldset name="guide_export_3" sortOrder="30">
+                    <settings>
+                        <label translate="true">Fase 3</label>
+                        <collapsible>false</collapsible>
+                    </settings>
+                    <container name="guide_image_export_container_3" sortOrder="30">
+                        <htmlContent name="guide_image_export_content_3">
+                            <block class="Zanna\Gls\Block\Adminhtml\Image" name="guide_image_export_3"
+                                   template="Zanna_Gls::image.phtml">
+                                <arguments>
+                                    <argument name="image" xsi:type="string">Zanna_Gls::images/export_3.png</argument>
+                                    <argument name="text" xsi:type="string">Importa e processa il file appena esportato
+                                        su Weblabeling (correggi eventuali errori)
+                                    </argument>
+                                </arguments>
+                            </block>
+                        </htmlContent>
+                    </container>
+                </fieldset>
+            </container>
+        </fieldset>
+        <fieldset name="guide_import" sortOrder="40">
+            <settings>
+                <collapsible>true</collapsible>
+                <label translate="true">Importazione</label>
+            </settings>
+            <container name="assign_products_container" sortOrder="20">
+                <htmlContent name="guide_image_import">
+                    <block class="Zanna\Gls\Block\Adminhtml\Image" name="guide_image_import_1"
+                           template="Zanna_Gls::image.phtml">
+                        <arguments>
+                            <argument name="image" xsi:type="string">Zanna_Gls::images/import.png</argument>
+                            <argument name="text" xsi:type="string">Esporta il file in formato "Testo" da Weblabeling e
+                                caricalo da questa pagina
+                            </argument>
+                        </arguments>
+                    </block>
+                </htmlContent>
+            </container>
+        </fieldset>
+    </fieldset>
+</form>

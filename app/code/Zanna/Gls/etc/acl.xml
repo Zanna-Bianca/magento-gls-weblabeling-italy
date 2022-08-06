@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  ~ Zanna Gls Weblabeling Module
+  ~
+  ~ @author                Zanna Bianca
+  ~ @package             Zanna Gls
+  ~ @version               1.0.0
+  ~ @copyright           2022 Zanna Bianca
+  ~ @license                http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Sales::sales">
+                        <resource id="Zanna_Gls::glsgroup" title="GLS" translate="title" sortOrder="120">
+                            <resource id="Zanna_Gls::import" title="Import" translate="title" sortOrder="120"/>
+                        </resource>
+                    </resource>
+                </resource>
+        </resources>
+    </acl>
+</config>
